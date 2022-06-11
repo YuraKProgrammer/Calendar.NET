@@ -3,3 +3,6 @@
 /Calendar.Models/obj
 /Calendar.WebService/bin
 /Calendar.WebService/obj
+/Calendar.DesktopClient/bin
+/Calendar.DesktopClient/obj
+/Calendar.DesktopClient/*.user

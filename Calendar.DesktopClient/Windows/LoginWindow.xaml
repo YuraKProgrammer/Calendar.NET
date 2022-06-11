@@ -1,0 +1,27 @@
+﻿<Window x:Class="Calendar.DesktopClient.Windows.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Login" Height="100" Width="200" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Login:"/>
+        <TextBox Grid.Column="1" x:Name="_tb"/>
+
+        <TextBlock Text="Password:" Grid.Row="1"/>
+        <PasswordBox Grid.Row="1" Grid.Column="1" x:Name="_pb"/>
+
+        <StackPanel Grid.Row="3" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+            <Button Content="Ok" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
