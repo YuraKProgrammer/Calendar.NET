@@ -1,0 +1,5 @@
+/.vs
+/Calendar.Models/bin
+/Calendar.Models/obj
+/Calendar.WebService/bin
+/Calendar.WebService/obj
