@@ -33,7 +33,7 @@ namespace Calendar.DesktopClient.Windows
         {
             try
             {
-                IAuthClient client = new AuthClient(null);
+                IAuthClient client = new AuthClient(new HttpClientFactory(Settings.Default.AuthServiceUrl));
                 LoginPasswordDto dto = new LoginPasswordDto { Login = _tb.Text, Password = _pb.Password };
                 var loginResult = await client.LoginByPasswordAsync(dto,CancellationToken.None);
                 if (loginResult.Error != null)

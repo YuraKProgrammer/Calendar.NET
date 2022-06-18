@@ -1,4 +1,6 @@
 ﻿using Calendar.Models;
+using Calendar.WebService.Services;
+using Kalantyr.Web;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Calendar.WebService.Controllers
@@ -7,11 +9,14 @@ namespace Calendar.WebService.Controllers
     [Route("[controller]")]
     public class EventController : ControllerBase
     {
+        private readonly EventService eventService;
+
         [HttpGet]
         [Route("Count")]
         public IActionResult GetCount(DateTime fromDate, DateTime toDate)
         {
-            return Ok(5);
+            int value = eventService.GetCount(fromDate, toDate, Request.GetAuthToken());
+            return base.Ok(value);
         }
 
         [HttpGet]
@@ -23,6 +28,11 @@ namespace Calendar.WebService.Controllers
                 new Event{Id=1, Name="луаущаувл", Date=new DateTime(2020,11,6)}
             };
             return Ok(events);
+        }
+
+        public EventController(EventService eventService)
+        {
+            this.eventService = eventService;
         }
     }
 }

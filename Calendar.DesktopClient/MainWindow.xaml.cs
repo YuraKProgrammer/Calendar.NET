@@ -1,4 +1,5 @@
 ﻿using Calendar.DesktopClient.Windows;
+using Kalantyr.Auth.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,9 @@ using System.Windows.Shapes;
 
 namespace Calendar.DesktopClient
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private TokenInfo _tokenInfo;
         public MainWindow()
         {
             InitializeComponent();
@@ -31,7 +30,7 @@ namespace Calendar.DesktopClient
             var window = new LoginWindow {Owner=this};
             if (window.ShowDialog() == true)
             {
-
+                _tokenInfo = window.Token;
             }
         }
     }

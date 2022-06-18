@@ -1,19 +1,22 @@
-var builder = WebApplication.CreateBuilder(args);
+using Calendar.WebService;
+using Kalantyr.Web;
 
-// Add services to the container.
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        RunWrapper.LogIfException(() =>
+        {
+            CreateHostBuilder(args).Build().Run();
+        });
+    }
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-app.UseSwagger();
-app.UseSwaggerUI();
-
-//app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder
+                    .UseIISIntegration()
+                    .UseStartup<Startup>();
+            });
+}
