@@ -1,10 +1,12 @@
-﻿namespace Calendar.WebService.Services
+﻿using Kalantyr.Web;
+
+namespace Calendar.WebService.Services
 {
     public class EventService
     {
-        public int GetCount(DateTime fromDate, DateTime toDate, string userToken)
+        public ResultDto<int> GetCount(DateTime fromDate, DateTime toDate, string userToken)
         {
-            return 5;
+            return new ResultDto<int> { Result = 5 };
         }
     }
 }

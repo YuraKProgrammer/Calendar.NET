@@ -1,0 +1,5 @@
+D:\Школьные задания\Программирование\Web\Calendar\Calendar.Tests\obj\Debug\net6.0\Calendar.Tests.csproj.AssemblyReference.cache
+D:\Школьные задания\Программирование\Web\Calendar\Calendar.Tests\obj\Debug\net6.0\Calendar.Tests.GeneratedMSBuildEditorConfig.editorconfig
+D:\Школьные задания\Программирование\Web\Calendar\Calendar.Tests\obj\Debug\net6.0\Calendar.Tests.AssemblyInfoInputs.cache
+D:\Школьные задания\Программирование\Web\Calendar\Calendar.Tests\obj\Debug\net6.0\Calendar.Tests.AssemblyInfo.cs
+D:\Школьные задания\Программирование\Web\Calendar\Calendar.Tests\obj\Debug\net6.0\Calendar.Tests.csproj.CoreCompileInputs.cache

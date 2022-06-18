@@ -1,0 +1,218 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.Tests\\Calendar.Tests.csproj": {}
+  },
+  "projects": {
+    "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.Models\\Calendar.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.Models\\Calendar.Models.csproj",
+        "projectName": "Calendar.Models",
+        "projectPath": "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.Models\\Calendar.Models.csproj",
+        "packagesPath": "C:\\Users\\Юра\\.nuget\\packages\\",
+        "outputPath": "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Юра\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Kalantyr.Auth.Client": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.Tests\\Calendar.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.Tests\\Calendar.Tests.csproj",
+        "projectName": "Calendar.Tests",
+        "projectPath": "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.Tests\\Calendar.Tests.csproj",
+        "packagesPath": "C:\\Users\\Юра\\.nuget\\packages\\",
+        "outputPath": "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Юра\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.Models\\Calendar.Models.csproj": {
+                "projectPath": "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.Models\\Calendar.Models.csproj"
+              },
+              "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.WebService\\Calendar.WebService.csproj": {
+                "projectPath": "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.WebService\\Calendar.WebService.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.2.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.1, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.WebService\\Calendar.WebService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.WebService\\Calendar.WebService.csproj",
+        "projectName": "Calendar.WebService",
+        "projectPath": "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.WebService\\Calendar.WebService.csproj",
+        "packagesPath": "C:\\Users\\Юра\\.nuget\\packages\\",
+        "outputPath": "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.WebService\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Юра\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.Models\\Calendar.Models.csproj": {
+                "projectPath": "D:\\Школьные задания\\Программирование\\Web\\Calendar\\Calendar.Models\\Calendar.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Kalantyr.Auth.Client": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "NSwag.AspNetCore": {
+              "target": "Package",
+              "version": "[13.16.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
