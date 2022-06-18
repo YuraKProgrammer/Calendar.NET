@@ -6,3 +6,5 @@
 /Calendar.DesktopClient/bin
 /Calendar.DesktopClient/obj
 /Calendar.DesktopClient/*.user
+/Calendar.Tests/bin
+/Calendar.Tests/obj

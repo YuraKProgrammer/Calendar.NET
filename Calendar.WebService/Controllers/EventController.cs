@@ -13,9 +13,9 @@ namespace Calendar.WebService.Controllers
 
         [HttpGet]
         [Route("Count")]
-        public IActionResult GetCount(DateTime fromDate, DateTime toDate)
+        public async Task<IActionResult> GetCountAsync(DateTime fromDate, DateTime toDate, CancellationToken cancellationToken)
         {
-            int value = eventService.GetCount(fromDate, toDate, Request.GetAuthToken());
+            var value = await eventService.GetCountAsync(fromDate, toDate, Request.GetAuthToken(),cancellationToken);
             return base.Ok(value);
         }
 

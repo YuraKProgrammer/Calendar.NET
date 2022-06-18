@@ -1,4 +1,5 @@
-﻿using Calendar.DesktopClient.Windows;
+﻿using Calendar.DesktopClient.Client;
+using Calendar.DesktopClient.Windows;
 using Kalantyr.Auth.Models;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace Calendar.DesktopClient
     public partial class MainWindow : Window
     {
         private TokenInfo _tokenInfo;
+        private HttpClientFactory _calendarClientFactory = new HttpClientFactory(Settings.Default.CalendarServiceUrl);
         public MainWindow()
         {
             InitializeComponent();
@@ -32,6 +34,15 @@ namespace Calendar.DesktopClient
             {
                 _tokenInfo = window.Token;
             }
+        }
+
+        private async void OnGetCount_Click(object sender, RoutedEventArgs e)
+        {
+            ICalendarClient client = new CalendarClient(_calendarClientFactory);
+            var r = await client.GetCountAsync(new DateTime(2000, 10, 10), new DateTime(2020, 5, 5), _tokenInfo.Value, System.Threading.CancellationToken.None);
+            if (r.Error != null)
+                throw new Exception(r.Error.Message);
+            MessageBox.Show(r.Result.ToString());
         }
     }
 }

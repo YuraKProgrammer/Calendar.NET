@@ -31,5 +31,14 @@ namespace Calendar.DesktopClient {
                 return ((string)(this["AuthServiceUrl"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:5208")]
+        public string CalendarServiceUrl {
+            get {
+                return ((string)(this["CalendarServiceUrl"]));
+            }
+        }
     }
 }

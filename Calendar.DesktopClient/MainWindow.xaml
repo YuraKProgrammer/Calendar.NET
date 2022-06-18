@@ -16,6 +16,9 @@
                 <MenuItem Header="Login..." Click="OnLogin_Click"/>
                 <MenuItem Header="Logout"/>
             </MenuItem>
+            <MenuItem Header="Calendar">
+                <MenuItem Header="GetCount" Click="OnGetCount_Click"/>
+            </MenuItem>
         </Menu>
     </Grid>
 </Window>

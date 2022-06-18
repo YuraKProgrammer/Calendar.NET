@@ -1,16 +1,20 @@
-﻿using Calendar.WebService.Services;
+﻿using Calendar.Models;
+using Calendar.WebService.Services;
 using NUnit.Framework;
 
 namespace Calendar.Tests
 {
     public class EventServiceTest
     {
-        [Test]
-        public void GetCountTest()
+        [TestCase(null)]
+        [TestCase("")]
+        [TestCase(" ")]
+        [TestCase("   ")]
+        public async Task GetCount_Token_Test(string token)
         {
             var service = new EventService();
-            var result = service.GetCount(new DateTime(), new DateTime(), null);
-            Assert.IsNotNull(result.Error);
+            var result = await service.GetCountAsync(new DateTime(), new DateTime(), token, CancellationToken.None);
+            Assert.AreEqual(Errors.TokenNotFound.Code,result.Error.Code);
         }
     }
 }
