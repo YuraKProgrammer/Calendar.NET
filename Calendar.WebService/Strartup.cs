@@ -1,4 +1,5 @@
-﻿using Calendar.WebService.Config;
+﻿using Calendar.DataModels;
+using Calendar.WebService.Config;
 using Calendar.WebService.Services;
 using Kalantyr.Auth.Client;
 using Microsoft.Extensions.Options;
@@ -22,6 +23,7 @@ namespace Calendar.WebService
                 sp.GetService<IHttpClientFactory>(),
                 sp.GetService<IOptions<AuthConfig>>().Value.AppKey));
             services.AddScoped<EventService>();
+            services.AddScoped<IEventStorage, TempEventStorage>();
 
             services.AddHttpClient<AuthClient>((sp, client) =>
             {

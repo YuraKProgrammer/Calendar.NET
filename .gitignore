@@ -8,3 +8,5 @@
 /Calendar.DesktopClient/*.user
 /Calendar.Tests/bin
 /Calendar.Tests/obj
+/Calendar.DataModels/bin
+/Calendar.DataModels/obj

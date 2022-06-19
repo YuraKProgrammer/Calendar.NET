@@ -1,6 +1,6 @@
-﻿namespace Calendar.Models
+﻿namespace Calendar.DataModels
 {
-    public class Event
+    public class EventRecord
     {
         public uint Id { get; set; }
         public string Name { get; set; }
@@ -8,5 +8,7 @@
         /// Дата начала события
         /// </summary>
         public DateTime Date { get; set; }
+
+        public uint UserId { get; set; }
     }
 }

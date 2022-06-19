@@ -1,4 +1,5 @@
-﻿using Kalantyr.Web;
+﻿using Calendar.Models;
+using Kalantyr.Web;
 using Kalantyr.Web.Impl;
 using System;
 using System.Net.Http;
@@ -13,6 +14,12 @@ namespace Calendar.DesktopClient.Client
         public CalendarClient(IHttpClientFactory httpClientFactory) : base(httpClientFactory, new TokenRequestEnricher())
         {
             _enricher = (TokenRequestEnricher)RequestEnricher;
+        }
+
+        public async Task<ResultDto<Event>> AddAsync(Event ev, string userToken, CancellationToken cancellationToken)
+        {
+            _enricher.Token = userToken;
+            return await Post<ResultDto<Event>>($"/event/add", Serialize(ev),cancellationToken);
         }
 
         public async Task<ResultDto<int>> GetCountAsync(DateTime fromDate, DateTime toDate, string userToken, CancellationToken cancellationToken)

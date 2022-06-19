@@ -17,7 +17,8 @@
                 <MenuItem Header="Logout"/>
             </MenuItem>
             <MenuItem Header="Calendar">
-                <MenuItem Header="GetCount" Click="OnGetCount_Click"/>
+                <MenuItem Header="Get Count" Click="OnGetCount_Click"/>
+                <MenuItem Header="Add Event" Click="OnAddEvent_Click"/>
             </MenuItem>
         </Menu>
     </Grid>

@@ -30,6 +30,14 @@ namespace Calendar.WebService.Controllers
             return Ok(events);
         }
 
+        [HttpPost]
+        [Route("Add")]
+        public async Task<IActionResult> AddAsync(Event ev, CancellationToken cancellationToken)
+        {
+            var value = await eventService.AddAsync(ev, Request.GetAuthToken(), cancellationToken);
+            return base.Ok(value);
+        }
+
         public EventController(EventService eventService)
         {
             this.eventService = eventService;
