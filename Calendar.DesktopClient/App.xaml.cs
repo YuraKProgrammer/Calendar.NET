@@ -1,21 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Calendar.DesktopClient
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    public partial class App
     {
         public static void ShowError(Exception error)
         {
-            MessageBox.Show(error.ToString());
+            var e = error.GetBaseException();
+            MessageBox.Show(e.Message + Environment.NewLine + Environment.NewLine + e.StackTrace);
         }
     }
 }

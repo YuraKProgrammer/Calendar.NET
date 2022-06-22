@@ -1,0 +1,39 @@
+﻿<Window x:Class="Calendar.DesktopClient.Windows.DateRangeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
+        Title="Выберите диапазон дат" Height="150" Width="300">
+
+    <Window.Resources>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource DefaultTextStyle}"/>
+        <Style TargetType="TextBox" BasedOn="{StaticResource DefaultTextBoxStyle}"/>
+        <Style TargetType="DatePicker" BasedOn="{StaticResource DefaultDatePickerStyle}"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Начало:" HorizontalAlignment="Right"/>
+        <DatePicker x:Name="_dpDateFrom" Grid.Column="1"/>
+        <TextBox x:Name="_tbTimeFrom" Grid.Column="2"/>
+
+        <TextBlock Text="Конец:" Grid.Row="1" HorizontalAlignment="Right"/>
+        <DatePicker x:Name="_dpDateTo" Grid.Column="1" Grid.Row="1"/>
+        <TextBox x:Name="_tbTimeTo" Grid.Column="2" Grid.Row="1"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Right">
+            <Button Style="{StaticResource OkButtonStyle}" Click="OnOkClick"/>
+            <Button Style="{StaticResource CancelButtonStyle}"/>
+        </StackPanel>
+    </Grid>
+</Window>
