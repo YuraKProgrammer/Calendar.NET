@@ -17,5 +17,13 @@ namespace Calendar.DataModels
             eventRecord.Id = id;
             return id;
         }
+
+        public async Task<IReadOnlyCollection<EventRecord>> GetEventsAsync(uint userId, DateTime fromDate, DateTime toDate, CancellationToken cancellationToken)
+        {
+            return _events
+                .Where(e => e.UserId==userId)
+                .Where(e => e.Date>=fromDate && e.Date<=toDate)
+                .ToArray();
+        }
     }
 }

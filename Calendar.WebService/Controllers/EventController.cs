@@ -21,12 +21,9 @@ namespace Calendar.WebService.Controllers
 
         [HttpGet]
         [Route("Events")]
-        public IActionResult GetEvents(DateTime fromDate, DateTime toDate)
+        public async Task<IActionResult> GetEventsAsync(CancellationToken cancellationToken)
         {
-            var events = new Event[]{
-                new Event{Id=3, Name="Событие1", Date=new DateTime(2000,12,10)},
-                new Event{Id=1, Name="луаущаувл", Date=new DateTime(2020,11,6)}
-            };
+            var events = await eventService.GetEventsAsync(Request.GetAuthToken(), cancellationToken);
             return Ok(events);
         }
 

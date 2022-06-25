@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Calendar.DesktopClient"
+        xmlns:local="clr-namespace:Calendar.DesktopClient" xmlns:controls="clr-namespace:Calendar.DesktopClient.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -21,5 +21,8 @@
                 <MenuItem Header="Добавить событие..." Click="OnAddEvent_Click"/>
             </MenuItem>
         </Menu>
+        <controls:EventsControl x:Name="_ec" Grid.Row="1">
+            
+        </controls:EventsControl>
     </Grid>
 </Window>

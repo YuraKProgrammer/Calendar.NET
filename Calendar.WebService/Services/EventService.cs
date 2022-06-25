@@ -19,13 +19,24 @@ namespace Calendar.WebService.Services
             if (getUserIdResult.Error!=null)
                 return new ResultDto<int> { Error = getUserIdResult.Error };
 
-            var count = 0;
-            if (getUserIdResult.Result == 3)
-                count = 30;
-            if (getUserIdResult.Result == 2)
-                count = 20;
+            var events = await _eventStorage.GetEventsAsync(getUserIdResult.Result, fromDate, toDate, cancellationToken);
 
-            return new ResultDto<int> { Result = count };
+            return new ResultDto<int> { Result = events.Count };
+        }
+
+        public async Task<ResultDto<Event[]>> GetEventsAsync(string userToken, CancellationToken cancellationToken)
+        {
+            if (string.IsNullOrWhiteSpace(userToken))
+                return new ResultDto<Event[]> { Error = Errors.TokenNotFound };
+
+            var getUserIdResult = await _appAuthClient.GetUserIdAsync(userToken, cancellationToken);
+            if (getUserIdResult.Error != null)
+                return new ResultDto<Event[]> { Error = getUserIdResult.Error };
+
+            cancellationToken.ThrowIfCancellationRequested();
+
+            var events = await _eventStorage.GetEventsAsync(getUserIdResult.Result, DateTime.MinValue, DateTime.MaxValue, cancellationToken);
+            return new ResultDto<Event[]> { Result = events.Select(a => Map(a)).ToArray()};
         }
 
         public async Task<ResultDto<Event>> AddAsync(Event ev, string userToken, CancellationToken cancellationToken)
@@ -50,6 +61,12 @@ namespace Calendar.WebService.Services
         {
             _appAuthClient = appAuthClient;
             _eventStorage = eventStorage;
+        }
+
+        private static Event Map(EventRecord er)
+        {
+            var e = new Event { Date = er.Date, Name = er.Name, Id=er.Id };
+            return e;
         }
     }
 }

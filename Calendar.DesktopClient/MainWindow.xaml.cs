@@ -5,6 +5,7 @@ using Kalantyr.Auth.Client;
 using Kalantyr.Auth.Models;
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace Calendar.DesktopClient
@@ -18,14 +19,23 @@ namespace Calendar.DesktopClient
         {
             InitializeComponent();
             TuneControls();
+            _ec.OnDelete += OnEventDelete;
         }
 
-        private void OnLogin_Click(object sender, RoutedEventArgs e)
+        private void OnEventDelete(Event ev)
+        {
+            if (MessageBox.Show("Вы уверены, что хотите удалить событие?","",MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+                return;
+            throw new NotImplementedException();
+        }
+
+        private async void OnLogin_Click(object sender, RoutedEventArgs e)
         {
             var window = new LoginWindow {Owner=this};
             if (window.ShowDialog() == true)
             {
                 _tokenInfo = window.Token;
+                await LoadEventsAsync();
                 TuneControls();
             }
         }
@@ -44,6 +54,7 @@ namespace Calendar.DesktopClient
                     }
                     _tokenInfo = null;
                     MessageBox.Show("Выход выполнен");
+                    _ec.Events = null;
                     TuneControls();
                 }
                 catch (Exception ex)
@@ -82,12 +93,28 @@ namespace Calendar.DesktopClient
                     var r = await client.AddAsync(ev, _tokenInfo.Value, System.Threading.CancellationToken.None);
                     if (r.Error != null)
                         throw new Exception(r.Error.Message);
-                    MessageBox.Show("Событие добавлено");
+                   await LoadEventsAsync();
                 }
                 catch (Exception ex)
                 {
                     App.ShowError(ex);
                 }
+        }
+
+        private async Task LoadEventsAsync()
+        {
+            try
+            {
+                ICalendarClient client = new CalendarClient(_calendarClientFactory);
+                var eventsResult = await client.GetEventsAsync(_tokenInfo.Value, CancellationToken.None);
+                if (eventsResult.Error != null)
+                    throw new Exception(eventsResult.Error.Message);
+                _ec.Events = eventsResult.Result;
+            }
+            catch (Exception ex)
+            {
+                App.ShowError(ex);
+            }
         }
 
         private void TuneControls()
