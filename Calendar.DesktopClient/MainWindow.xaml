@@ -12,13 +12,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Menu>
-            <MenuItem Header="User">
-                <MenuItem Header="Login..." Click="OnLogin_Click"/>
-                <MenuItem Header="Logout"/>
+            <MenuItem Header="Пользователь">
+                <MenuItem Header="Войти..." Click="OnLogin_Click"/>
+                <MenuItem Header="Выйти" Click="OnLogout_Click" x:Name="_miLogout"/>
             </MenuItem>
-            <MenuItem Header="Calendar">
-                <MenuItem Header="Get Count" Click="OnGetCount_Click"/>
-                <MenuItem Header="Add Event" Click="OnAddEvent_Click"/>
+            <MenuItem Header="Календарь" x:Name="_miCalendar">
+                <MenuItem Header="Получить количество..." Click="OnGetCount_Click"/>
+                <MenuItem Header="Добавить событие..." Click="OnAddEvent_Click"/>
             </MenuItem>
         </Menu>
     </Grid>
