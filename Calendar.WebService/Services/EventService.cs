@@ -57,6 +57,22 @@ namespace Calendar.WebService.Services
             return new ResultDto<Event> { Result = ev };
         }
 
+        public async Task<ResultDto<bool>> DeleteAsync(uint id, string userToken, CancellationToken cancellationToken)
+        {
+            if (string.IsNullOrWhiteSpace(userToken))
+                return new ResultDto<bool> { Error = Errors.TokenNotFound };
+
+            var getUserIdResult = await _appAuthClient.GetUserIdAsync(userToken, cancellationToken);
+            if (getUserIdResult.Error != null)
+                return new ResultDto<bool> { Error = getUserIdResult.Error };
+
+            cancellationToken.ThrowIfCancellationRequested();
+
+            await _eventStorage.DeleteEventAsync(id, cancellationToken);
+
+            return new ResultDto<bool> { Result = true};
+        }
+
         public EventService(IAppAuthClient appAuthClient, IEventStorage eventStorage)
         {
             _appAuthClient = appAuthClient;

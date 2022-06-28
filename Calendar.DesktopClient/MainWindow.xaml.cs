@@ -22,11 +22,23 @@ namespace Calendar.DesktopClient
             _ec.OnDelete += OnEventDelete;
         }
 
-        private void OnEventDelete(Event ev)
+        private async void OnEventDelete(Event ev)
         {
-            if (MessageBox.Show("Вы уверены, что хотите удалить событие?","",MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+            if (MessageBox.Show("Вы уверены, что хотите удалить событие?","Подтверждение",MessageBoxButton.YesNo) != MessageBoxResult.Yes)
                 return;
-            throw new NotImplementedException();
+            try
+            {
+                ICalendarClient client = new CalendarClient(_calendarClientFactory);
+                var eventsResult = await client.DeleteEventAsync(_ec.SelectedEvent, _tokenInfo.Value, CancellationToken.None);
+                if (eventsResult.Error != null)
+                    throw new Exception(eventsResult.Error.Message);
+                MessageBox.Show("Событие удалено");
+                await LoadEventsAsync();
+            }
+            catch(Exception ex)
+            {
+                App.ShowError(ex);
+            }
         }
 
         private async void OnLogin_Click(object sender, RoutedEventArgs e)
@@ -121,6 +133,7 @@ namespace Calendar.DesktopClient
         {
             _miLogout.IsEnabled = _tokenInfo != null;
             _miCalendar.IsEnabled = _tokenInfo != null;
+            _miLogin.IsEnabled = _tokenInfo == null;
         }
     }
 }

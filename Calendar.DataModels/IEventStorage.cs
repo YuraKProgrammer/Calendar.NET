@@ -13,6 +13,8 @@ namespace Calendar.DataModels
         /// </summary>
         Task<uint> AddAsync(EventRecord eventRecord, CancellationToken cancellationToken);
 
+        Task DeleteEventAsync(uint id, CancellationToken cancellationToken);
+
         /// <summary>
         /// Возвращает события указанного польователя в указанный промежуток времени
         /// </summary>

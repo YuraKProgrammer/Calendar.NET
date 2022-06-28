@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <Menu>
             <MenuItem Header="Пользователь">
-                <MenuItem Header="Войти..." Click="OnLogin_Click"/>
+                <MenuItem Header="Войти..." Click="OnLogin_Click" x:Name="_miLogin"/>
                 <MenuItem Header="Выйти" Click="OnLogout_Click" x:Name="_miLogout"/>
             </MenuItem>
             <MenuItem Header="Календарь" x:Name="_miCalendar">
