@@ -36,6 +36,14 @@ namespace Calendar.WebService.Controllers
         }
 
         [HttpPost]
+        [Route("Edit")]
+        public async Task<IActionResult> EditAsync(Event ev, CancellationToken cancellationToken)
+        {
+            var value = await eventService.EditAsync(ev, Request.GetAuthToken(), cancellationToken);
+            return base.Ok(value);
+        }
+
+        [HttpPost]
         [Route("Delete")]
         public async Task<IActionResult> DeleteAsync(uint id, CancellationToken cancellationToken)
         {

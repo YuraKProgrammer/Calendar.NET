@@ -12,6 +12,7 @@ namespace Calendar.DataModels
         /// Вовращает id добавленной записи 
         /// </summary>
         Task<uint> AddAsync(EventRecord eventRecord, CancellationToken cancellationToken);
+        Task EditAsync(EventRecord eventRecord, CancellationToken cancellationToken);
 
         Task DeleteEventAsync(uint id, CancellationToken cancellationToken);
 

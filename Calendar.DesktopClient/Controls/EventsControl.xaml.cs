@@ -22,6 +22,7 @@ namespace Calendar.DesktopClient.Controls
     public partial class EventsControl : UserControl
     {
         public event Action<Event> OnDelete;
+        public event Action<Event> OnEdit;
         public Event SelectedEvent { 
             get 
             {
@@ -47,6 +48,18 @@ namespace Calendar.DesktopClient.Controls
         {
             if (SelectedEvent!=null)
                 OnDelete?.Invoke(SelectedEvent);
+        }
+
+        private void _lb_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (SelectedEvent != null)
+                OnEdit?.Invoke(SelectedEvent);
+        }
+
+        private void OnEditClick(object sender, RoutedEventArgs e)
+        {
+            if (SelectedEvent != null)
+                OnEdit?.Invoke(SelectedEvent);
         }
     }
 }

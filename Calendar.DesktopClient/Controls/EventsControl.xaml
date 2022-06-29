@@ -1,13 +1,14 @@
 ﻿<UserControl x:Class="Calendar.DesktopClient.Controls.EventsControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ListBox x:Name="_lb">
+    <ListBox x:Name="_lb" MouseDoubleClick="_lb_MouseDoubleClick">
         <ListBox.ItemTemplate>
             <DataTemplate>
                 <StackPanel>
                     <StackPanel.ContextMenu>
                         <ContextMenu>
                             <MenuItem Header="Удалить" Click="OnDeleteClick"/>
+                            <MenuItem Header="Редактировать..." Click="OnEditClick"/>
                         </ContextMenu>
                     </StackPanel.ContextMenu>
                     <TextBlock Text="{Binding Name}"/>

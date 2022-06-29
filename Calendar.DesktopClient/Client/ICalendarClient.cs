@@ -11,6 +11,7 @@ namespace Calendar.DesktopClient.Client
     {
         Task<ResultDto<int>> GetCountAsync(DateTime fromDate, DateTime toDate, string userToken, CancellationToken cancellationToken);
         Task<ResultDto<Event>> AddAsync(Event ev, string userToken, CancellationToken cancellationToken);
+        Task<ResultDto<Event>> EditAsync(Event ev, string userToken, CancellationToken cancellationToken);
         Task<ResultDto<Event[]>> GetEventsAsync(string userToken, CancellationToken cancellationToken);
         Task<ResultDto<bool>> DeleteEventAsync(Event ev, string userToken, CancellationToken cancellationToken);
     }

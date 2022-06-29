@@ -30,6 +30,12 @@ namespace Calendar.DesktopClient.Client
             return await Post<ResultDto<bool>>($"/event/delete?id={ev.Id}", null, cancellationToken);
         }
 
+        public async Task<ResultDto<Event>> EditAsync(Event ev, string userToken, CancellationToken cancellationToken)
+        {
+            _enricher.Token = userToken;
+            return await Post<ResultDto<Event>>($"/event/edit", Serialize(ev), cancellationToken);
+        }
+
         public async Task<ResultDto<int>> GetCountAsync(DateTime fromDate, DateTime toDate, string userToken, CancellationToken cancellationToken)
         {
             _enricher.Token = userToken;

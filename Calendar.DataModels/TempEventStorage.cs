@@ -27,18 +27,22 @@ namespace Calendar.DataModels
                 _events.Remove(er);
         }
 
+        public async Task EditAsync(EventRecord eventRecord, CancellationToken cancellationToken)
+        {
+            var er = _events.FirstOrDefault(e => e.Id == eventRecord.Id);
+            if (er != null)
+            {
+                _events.Remove(er);
+                _events.Add(eventRecord);
+            }
+        }
+
         public async Task<IReadOnlyCollection<EventRecord>> GetEventsAsync(uint userId, DateTime fromDate, DateTime toDate, CancellationToken cancellationToken)
         {
             return _events
                 .Where(e => e.UserId==userId)
                 .Where(e => e.Date>=fromDate && e.Date<=toDate)
                 .ToArray();
-        }
-
-        private uint getEventId(EventRecord eventRecord)
-        {
-            //Не реализовано
-            return 0;
         }
     }
 }

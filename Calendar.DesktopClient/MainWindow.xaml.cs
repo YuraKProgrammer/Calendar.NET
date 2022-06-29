@@ -20,6 +20,7 @@ namespace Calendar.DesktopClient
             InitializeComponent();
             TuneControls();
             _ec.OnDelete += OnEventDelete;
+            _ec.OnEdit += OnEventEdit;
         }
 
         private async void OnEventDelete(Event ev)
@@ -39,6 +40,24 @@ namespace Calendar.DesktopClient
             {
                 App.ShowError(ex);
             }
+        }
+
+        private async void OnEventEdit(Event ev)
+        {
+            var window = new AddEventWindow(ev) { Owner = this };
+            if (window.ShowDialog() == true)
+                try
+                {
+                    ICalendarClient client = new CalendarClient(_calendarClientFactory);
+                    var r = await client.EditAsync(ev, _tokenInfo.Value, System.Threading.CancellationToken.None);
+                    if (r.Error != null)
+                        throw new Exception(r.Error.Message);
+                    await LoadEventsAsync();
+                }
+                catch (Exception ex)
+                {
+                    App.ShowError(ex);
+                }
         }
 
         private async void OnLogin_Click(object sender, RoutedEventArgs e)

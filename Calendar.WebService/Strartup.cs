@@ -2,6 +2,7 @@
 using Calendar.WebService.Config;
 using Calendar.WebService.Services;
 using Kalantyr.Auth.Client;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Options;
 
 namespace Calendar.WebService
@@ -24,6 +25,8 @@ namespace Calendar.WebService
                 sp.GetService<IOptions<AuthConfig>>().Value.AppKey));
             services.AddScoped<EventService>();
             services.AddScoped<IEventStorage, TempEventStorage>();
+            services.AddScoped<IEventValidator, EventValidator>();
+            services.AddScoped<IHealthCheck, EventService>();
 
             services.AddHttpClient<AuthClient>((sp, client) =>
             {

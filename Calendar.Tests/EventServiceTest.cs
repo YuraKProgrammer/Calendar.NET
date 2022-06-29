@@ -11,6 +11,7 @@ namespace Calendar.Tests
     {
         private readonly Mock<IAppAuthClient> _appAuthClient = new Mock<IAppAuthClient>();
         private readonly Mock<IEventStorage> _eventStorage = new Mock<IEventStorage>();
+        private readonly Mock<IEventValidator> _eventValidator = new Mock<IEventValidator>();
 
         [TestCase(null)]
         [TestCase("")]
@@ -18,7 +19,7 @@ namespace Calendar.Tests
         [TestCase("   ")]
         public async Task GetCount_Token_Test(string token)
         {
-            var service = new EventService(_appAuthClient.Object, _eventStorage.Object);
+            var service = new EventService(_appAuthClient.Object, _eventStorage.Object, _eventValidator.Object);
             var result = await service.GetCountAsync(new DateTime(), new DateTime(), token, CancellationToken.None);
             Assert.AreEqual(Errors.TokenNotFound.Code,result.Error.Code);
         }
@@ -33,7 +34,7 @@ namespace Calendar.Tests
             _appAuthClient
                 .Setup(ac => ac.GetUserIdAsync("54321", It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new Kalantyr.Web.ResultDto<uint> { Error=new Kalantyr.Web.Error {Code="E"}});
-            var service = new EventService(_appAuthClient.Object, _eventStorage.Object);
+            var service = new EventService(_appAuthClient.Object, _eventStorage.Object, _eventValidator.Object);
             var result = await service.GetCountAsync(new DateTime(), new DateTime(), token, CancellationToken.None);
             if (success == true)
             {
