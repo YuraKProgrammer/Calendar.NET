@@ -10,3 +10,6 @@
 /Calendar.Tests/obj
 /Calendar.DataModels/bin
 /Calendar.DataModels/obj
+/Calendar.SqlStorage/bin
+/Calendar.SqlStorage/obj
+/Calendar.WebService/*.user
