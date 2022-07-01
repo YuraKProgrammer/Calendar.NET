@@ -24,7 +24,7 @@ namespace Calendar.WebService
                 sp.GetService<IHttpClientFactory>(),
                 sp.GetService<IOptions<AuthConfig>>().Value.AppKey));
             services.AddScoped<EventService>();
-            services.AddScoped<IEventStorage, TempEventStorage>();
+            services.AddScoped<IEventStorage, SqlStorage.SqlStorage>();
             services.AddScoped<IEventValidator, EventValidator>();
             services.AddScoped<IHealthCheck, EventService>();
 

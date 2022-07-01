@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calendar.DesktopClient", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calendar.Tests", "Calendar.Tests\Calendar.Tests.csproj", "{61B73B0C-A9AD-49DC-BBFF-7F625185E9D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar.DataModels", "Calendar.DataModels\Calendar.DataModels.csproj", "{0B8393CB-B4B8-48A0-B4B6-C215267773B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calendar.DataModels", "Calendar.DataModels\Calendar.DataModels.csproj", "{0B8393CB-B4B8-48A0-B4B6-C215267773B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar.SqlStorage", "Calendar.SqlStorage\Calendar.SqlStorage.csproj", "{F589BCED-096C-400C-BBBA-5C41615D8B33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{0B8393CB-B4B8-48A0-B4B6-C215267773B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B8393CB-B4B8-48A0-B4B6-C215267773B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B8393CB-B4B8-48A0-B4B6-C215267773B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F589BCED-096C-400C-BBBA-5C41615D8B33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F589BCED-096C-400C-BBBA-5C41615D8B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F589BCED-096C-400C-BBBA-5C41615D8B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F589BCED-096C-400C-BBBA-5C41615D8B33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

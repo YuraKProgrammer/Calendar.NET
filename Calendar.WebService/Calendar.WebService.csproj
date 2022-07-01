@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Calendar.DataModels\Calendar.DataModels.csproj" />
     <ProjectReference Include="..\Calendar.Models\Calendar.Models.csproj" />
+    <ProjectReference Include="..\Calendar.SqlStorage\Calendar.SqlStorage.csproj" />
   </ItemGroup>
 
 </Project>
