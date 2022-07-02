@@ -71,6 +71,10 @@ namespace Calendar.DesktopClient
             }
         }
 
+        private async void OnRegister_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
         private async void OnLogout_Click(object sender, RoutedEventArgs e)
         {
             if (_tokenInfo != null)

@@ -34,10 +34,22 @@ namespace Calendar.DesktopClient {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:5208")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://kalantyr.ru/calendar")]
         public string CalendarServiceUrl {
             get {
                 return ((string)(this["CalendarServiceUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string abc {
+            get {
+                return ((string)(this["abc"]));
+            }
+            set {
+                this["abc"] = value;
             }
         }
     }
