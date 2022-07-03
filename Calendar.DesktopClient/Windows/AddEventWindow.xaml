@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calendar.DesktopClient.Windows"
         mc:Ignorable="d"
-        Title="Событие" Height="150" Width="280" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+        Title="Войти" Height="150" Width="280" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <Style TargetType="TextBlock" BasedOn="{StaticResource DefaultTextStyle}"/>
         <Style TargetType="TextBox" BasedOn="{StaticResource DefaultTextBoxStyle}"/>

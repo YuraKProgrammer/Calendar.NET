@@ -34,7 +34,7 @@ namespace Calendar.DesktopClient {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://kalantyr.ru/calendar")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:5208")]
         public string CalendarServiceUrl {
             get {
                 return ((string)(this["CalendarServiceUrl"]));
