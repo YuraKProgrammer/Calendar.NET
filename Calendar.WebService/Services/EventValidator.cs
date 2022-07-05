@@ -1,4 +1,5 @@
-﻿using Calendar.Models;
+﻿using System;
+using Calendar.Models;
 using Kalantyr.Web;
 
 namespace Calendar.WebService.Services

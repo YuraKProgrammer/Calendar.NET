@@ -1,4 +1,7 @@
-﻿using Calendar.DataModels;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Calendar.DataModels;
 using Calendar.Models;
 using Calendar.WebService.Services;
 using Kalantyr.Auth.Client;
@@ -12,6 +15,13 @@ namespace Calendar.Tests
         private readonly Mock<IAppAuthClient> _appAuthClient = new Mock<IAppAuthClient>();
         private readonly Mock<IEventStorage> _eventStorage = new Mock<IEventStorage>();
         private readonly Mock<IEventValidator> _eventValidator = new Mock<IEventValidator>();
+
+        public EventServiceTest()
+        {
+            _eventStorage
+                .Setup(es => es.GetEventsAsync(It.IsAny<uint>(), It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(Array.Empty<EventRecord>());
+        }
 
         [TestCase(null)]
         [TestCase("")]

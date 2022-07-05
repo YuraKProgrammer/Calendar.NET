@@ -1,4 +1,6 @@
-﻿namespace Calendar.Models
+﻿using System;
+
+namespace Calendar.Models
 {
     public class Event
     {

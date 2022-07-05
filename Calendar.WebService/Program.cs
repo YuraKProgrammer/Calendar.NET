@@ -1,5 +1,7 @@
 using Calendar.WebService;
 using Kalantyr.Web;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 public class Program
 {
