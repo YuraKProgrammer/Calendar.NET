@@ -13,3 +13,4 @@
 /Calendar.SqlStorage/bin
 /Calendar.SqlStorage/obj
 /Calendar.WebService/*.user
+/*.user

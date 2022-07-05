@@ -4,7 +4,11 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Calendar.WebService.Services;
+using Kalantyr.Web;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace Calendar.WebService.Controllers
 {
@@ -17,7 +21,7 @@ namespace Calendar.WebService.Controllers
             _serviceProvider = serviceProvider;
         }
 
-        IServiceProvider _serviceProvider;
+        private readonly IServiceProvider _serviceProvider;
 
         [HttpGet]
         [Route("Version")]
@@ -39,6 +43,16 @@ namespace Calendar.WebService.Controllers
             }
 
             return Ok("Success");
+        }
+
+        [HttpPost]
+        [Route("migrate")]
+        [ProducesResponseType(typeof(ResultDto<bool>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> MigrateAsync(CancellationToken cancellationToken)
+        {
+            var adminService = _serviceProvider.GetService<AdminService>();
+            await adminService.MigrateAsync(Request.GetAuthToken(), cancellationToken);
+            return Ok();
         }
     }
 }
