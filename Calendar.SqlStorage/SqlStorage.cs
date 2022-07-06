@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Calendar.SqlStorage
 {
-    public class SqlStorage: IEventStorage, IHealthCheck
+    public class SqlStorage: IEventStorage, IHealthCheck, IStorageTools
     {
         private readonly string _connectionString;
 
@@ -73,6 +73,12 @@ namespace Calendar.SqlStorage
             {
                 return HealthCheckResult.Unhealthy(nameof(SqlStorage), e);
             }
+        }
+
+        public async Task MigrateAsync(CancellationToken cancellationToken)
+        {
+            await using var ctx = new EventsDbContext(_connectionString);
+            await ctx.Database.MigrateAsync(cancellationToken);
         }
     }
 }

@@ -31,9 +31,11 @@ namespace Calendar.WebService
                 sp.GetService<IHttpClientFactory>(),
                 sp.GetService<IOptions<AuthConfig>>().Value.AppKey));
             services.AddScoped<EventService>();
+            services.AddScoped<AdminService>();
             services.AddScoped<IEventStorage, SqlStorage.SqlStorage>();
             services.AddScoped<IEventValidator, EventValidator>();
             services.AddScoped<IHealthCheck, EventService>();
+            services.AddScoped<IStorageTools, SqlStorage.SqlStorage>();
 
             services.AddHttpClient<AuthClient>((sp, client) =>
             {
