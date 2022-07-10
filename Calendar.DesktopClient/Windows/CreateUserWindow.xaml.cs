@@ -35,7 +35,7 @@ namespace Calendar.DesktopClient.Windows
             {
                 if (_pb1.Password != _pb2.Password)
                     throw new Exception("Пароли не совпадают");
-                IAuthClient client = new AuthClient(new HttpClientFactory(Settings.Default.AuthServiceUrl));
+                IAuthClient client = App.CreateAuthClient();
                 var createResult = await client.CreateUserWithPasswordAsync(_tb.Text, _pb1.Password, null, CancellationToken.None);
                 if (createResult.Error != null)
                 {

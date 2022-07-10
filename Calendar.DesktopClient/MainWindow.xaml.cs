@@ -88,7 +88,7 @@ namespace Calendar.DesktopClient
             {
                 try
                 {
-                    IAuthClient client = new AuthClient(new HttpClientFactory(Settings.Default.AuthServiceUrl));
+                    IAuthClient client = App.CreateAuthClient();
                     var logoutResult = await client.LogoutAsync(_tokenInfo.Value, CancellationToken.None);
                     if (logoutResult.Error != null)
                     {
