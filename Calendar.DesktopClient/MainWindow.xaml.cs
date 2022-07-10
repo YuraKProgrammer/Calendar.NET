@@ -73,6 +73,13 @@ namespace Calendar.DesktopClient
 
         private async void OnRegister_Click(object sender, RoutedEventArgs e)
         {
+            var window = new CreateUserWindow() { Owner=this };
+            if (window.ShowDialog() == true)
+            {
+                _tokenInfo = window.Token;
+                await LoadEventsAsync();
+                TuneControls();
+            }
         }
 
         private async void OnLogout_Click(object sender, RoutedEventArgs e)

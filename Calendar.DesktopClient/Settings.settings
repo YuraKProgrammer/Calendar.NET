@@ -6,7 +6,7 @@
       <Value Profile="(Default)">https://kalantyr.ru/auth</Value>
     </Setting>
     <Setting Name="CalendarServiceUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://localhost:5208</Value>
+      <Value Profile="(Default)">https://kalantyr.ru/calendar</Value>
     </Setting>
     <Setting Name="abc" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
